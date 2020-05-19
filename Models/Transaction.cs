@@ -7,7 +7,7 @@ namespace PersonalAccounts.Models
 {
     public class Transaction
     {
-        public int TransId { get; set; }
+        public int TransactionId { get; set; }
         public double Amount { get; set; }
         public DateTime TransDate { get; set; }
         public string Description { get; set; }

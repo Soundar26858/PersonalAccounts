@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using PersonalAccounts.Data;
 
 namespace PersonalAccounts
 {
@@ -27,6 +29,9 @@ namespace PersonalAccounts
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<PersonalAccountsContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PersonalAccountsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
